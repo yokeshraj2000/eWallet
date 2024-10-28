@@ -1,0 +1,80 @@
+<section>
+    <div class="container">
+        <div class="col-12 mb-3 mt-3 mb-sm-0">
+            <div class="card rounded-3 shadow-lg">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-6">
+                            <h5 class="card-title">Balance</h5>
+                            <p class="card-text">
+                                {{this.currentDateTime}}
+                            </p>
+                            <p class="card-title fs-2">₹ {{ user?.walletBalance}}</p>
+                        </div>
+                        <div class="col-6">
+                            <div class="d-flex justify-content-end">
+                                <button type="button" class="btn btn-primary rounded-3 shadow" (click)="goToTransaction()">Transactions</button>
+                            </div>
+                            <div class="mt-5 d-flex justify-content-end">
+                                <button type="button" class="btn btn-primary rounded-3 shadow" data-bs-toggle="modal"
+                                data-bs-target="#exampleModal">Send Money</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="mb-3 mt-3 mb-sm-0">
+            <div class="row d-flex justify-content-center">
+                <div class="col-12 mb-3">
+                    <div class="card ms-2 me-2 border-0" style="background-color: transparent;">
+                        <div class="cardcontainer">
+                            <header>
+                                <span class="logo">
+                                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSuz4--wwsHby2kKmk7bA031e4BRkg-CZoNTyG8W5AlK2cAnG_ZdB3DB8-NSMt2xQ9gczw&usqp=CAUg" alt="" />
+                                    <h5 class="cardname">Master Card</h5>
+                                </span>
+                                <img src="images/chip.png" alt="" class="chip" />
+                            </header>
+                            <div class="card-details">
+                                <div class="name-number">
+                                    <h6>Card Number</h6>
+                                    <h5 class="number cardname">8050 5040 2030 3020</h5>
+                                    <h5 class="name cardname">{{this.currentUserName}}</h5>
+                                </div>
+                                <div class="valid-date">
+                                    <h6>Valid Thru</h6>
+                                    <h5 class="cardname">05/28</h5>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Send Money</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <label><h3>Amount:</h3></label>
+                <input type="text" class="form-control" [(ngModel)]="transactionAmount">
+                <br>
+                <label><h3>Peer User:</h3></label>
+                <select class="form-select" [(ngModel)]="selectedPeerId">
+                    <option *ngFor="let peer of peerUsers" [value]="peer.userId">{{ peer.username }}</option>
+                </select>
+                <br>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" (click)="sendMoney()">Send</button>
+            </div>
+        </div>
+    </div>
+</div>

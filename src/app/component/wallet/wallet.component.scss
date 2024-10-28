@@ -1,0 +1,54 @@
+.cardcontainer {
+    position: relative;
+    background-color: darkgray;
+    background-size: cover;
+    padding: 25px;
+    border-radius: 28px;
+    width: 100%;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+}
+
+header,
+.logo {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo img {
+    width: 48px;
+    margin-right: 10px;
+}
+
+h5.cardname {
+    font-size: 16px;
+    font-weight: 400;
+    color: #fff;
+}
+
+header .chip {
+    width: 60px;
+}
+
+h6 {
+    color: #fff;
+    font-size: 10px;
+    font-weight: 400;
+}
+
+h5.number {
+    margin-top: 4px;
+    font-size: 18px;
+    letter-spacing: 1px;
+}
+
+h5.name {
+    margin-top: 20px;
+}
+
+.cardcontainer .card-details {
+    margin-top: 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}
